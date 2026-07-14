@@ -11,13 +11,12 @@ namespace Projekt_Klausur
         static int produkt_count = 0;
 
         // Kunde data
-        static string kunde_name = "";
-        static string[] kunde_bestellungen = new string[10];
-        static int kunde_bestellungen_count = 0;
+        static string[] kunde_name = new string[20];
+        static string[] kunde_bestellungen = new string[20];
+        static int bestellungen_count = 0;
 
         static void Emoji()
         {
-
             Console.OutputEncoding = System.Text.Encoding.UTF8;
         }
 
@@ -64,7 +63,7 @@ namespace Projekt_Klausur
                 char user = Console.ReadKey().KeyChar;
 
                 Console.Clear();
-                switch (user)
+                switch (char.ToUpper(user))
                 {
 
                     case 'M':
@@ -162,7 +161,7 @@ namespace Projekt_Klausur
                         Console.WriteLine();
                         Console.WriteLine();
                         Console.Clear();
-                        Login();
+                        second_loop = false;
                         break;
                 }
                 Console.Clear();
@@ -174,7 +173,6 @@ namespace Projekt_Klausur
         static void Auswahl_Kunde()
         {
             Emoji();
-            Kunde_Anmelden();
 
             bool third_loop = true;
 
@@ -193,14 +191,13 @@ namespace Projekt_Klausur
                         break;
 
                     case '2':
-                        ZeigeKundeBestellungen();
+                        ShowKundeBestellung();
                         break;
 
                     case '3':
-                        SimuliereKundeBestellung();
+                        Kunde_Active_Bestellung();
                         break;
 
-                    case 'X':
                     case 'x':
                         third_loop = false;
                         break;
@@ -212,6 +209,8 @@ namespace Projekt_Klausur
         // 4th Methode for the Lieferant rechte
         // Easy switch - case for the action auswahl
 
+
+        //To do - Change the add function
         static void Auswahl_Lieferant()
         {
             Emoji();
@@ -262,66 +261,55 @@ namespace Projekt_Klausur
             Console.WriteLine("     [X] ⏻  Logout");
         }
 
-        static void Kunde_Anmelden()
-        {
-            Console.WriteLine("=== KUNDE LOGIN ===");
-            Console.Write("Bitte gib deinen Namen ein: ");
-            kunde_name = Console.ReadLine() ?? "";
-
-            if (string.IsNullOrWhiteSpace(kunde_name))
-            {
-                kunde_name = "Gast";
-            }
-
-            Console.WriteLine($"Willkommen, {kunde_name}! 💖");
-            Console.WriteLine("Press Enter to continue...");
-            Console.ReadLine();
-            Console.Clear();
-        }
 
         static void Kunde_Menu()
         {
-            Console.WriteLine($"Hey {kunde_name}, what do we wanna do today??!!");
-            Console.WriteLine("(1) Check the Produkts!!");
-            Console.WriteLine("(2) Show your orders");
-            Console.WriteLine("(3) Add one product to your order");
-            Console.WriteLine("(X) Log Out");
+            Console.WriteLine("═══════════════════════════════════════════════════════");
+            Console.WriteLine();
+            Console.WriteLine("                NEXUS TERMINAL");
+            Console.WriteLine("              CLIENT INTERFACE v3.2");
+            Console.WriteLine();
+            Console.WriteLine("═══════════════════════════════════════════════════════");
+            Console.WriteLine();
+            Console.WriteLine(">> USER DETECTED");
+            Console.WriteLine($"   ID : {kunde_name}");
+            Console.WriteLine();
+            Console.WriteLine("───────────────────────────────────────────────────────");
+            Console.WriteLine();
+            Console.WriteLine(" Select an operation:");
+            Console.WriteLine();
+            Console.WriteLine(" [1] 📦  Browse Products");
+            Console.WriteLine();
+            Console.WriteLine(" [2] 📄  View Orders");
+            Console.WriteLine();
+            Console.WriteLine(" [3] ➕  Place New Order");
+            Console.WriteLine();
+            Console.WriteLine(" [X] \u23fb  Disconnect");
+            Console.WriteLine();
+            Console.WriteLine("───────────────────────────────────────────────────────");
+            Console.WriteLine(" Awaiting input...");
         }
 
-        static void ZeigeKundeBestellungen()
+        static void ShowKundeBestellung()
         {
             Console.WriteLine("=== SHOWING YOUR BESTELLUNG ===");
             Console.WriteLine();
 
-            if (kunde_bestellungen_count == 0)
+            for (int i = 0; i < bestellungen_count; i++)
             {
-                Console.WriteLine("You don't have orders yet 😢");
+                Console.WriteLine($"[{i + 1}] {kunde_bestellungen[i]}");
             }
-            else
-            {
-                for (int i = 0; i < kunde_bestellungen_count; i++)
-                {
-                    Console.WriteLine($"[{i + 1}] {kunde_bestellungen[i]}");
-                }
-            }
+
 
             Console.WriteLine();
             Console.WriteLine("Press Enter to Continue!!");
             Console.ReadLine();
             Console.Clear();
         }
-
-        static void SimuliereKundeBestellung()
+        
+        static void Kunde_Active_Bestellung()
         {
             Console.WriteLine("=== ADD PRODUCT TO YOUR ORDER ===");
-
-            if (produkt_count == 0)
-            {
-                Console.WriteLine("No products available right now.");
-                Console.ReadLine();
-                Console.Clear();
-                return;
-            }
 
             for (int i = 0; i < produkt_count; i++)
             {
@@ -329,23 +317,12 @@ namespace Projekt_Klausur
             }
 
             Console.WriteLine();
-            Console.Write("Choose product index: ");
+            Console.Write("Choose what product to put in: ");
             int index = Convert.ToInt32(Console.ReadLine());
 
-            if (index < 0 || index >= produkt_count)
-            {
-                Console.WriteLine("Invalid product index.");
-            }
-            else if (kunde_bestellungen_count >= kunde_bestellungen.Length)
-            {
-                Console.WriteLine("Order list is full boo!!");
-            }
-            else
-            {
-                kunde_bestellungen[kunde_bestellungen_count] = produkt_name[index];
-                kunde_bestellungen_count++;
-                Console.WriteLine($"Added '{produkt_name[index]}' to your orders ✅");
-            }
+
+            kunde_bestellungen[bestellungen_count] = produkt_name[index];
+            bestellungen_count++;
 
             Console.WriteLine("Press Enter to Continue!!");
             Console.ReadLine();
@@ -359,15 +336,9 @@ namespace Projekt_Klausur
             Emoji();
             Console.Clear();
             Console.WriteLine("=== PRODUCTS ===");
-            Console.WriteLine("");
+            Console.WriteLine();
 
-            //No products inside?? Then console ausgabe
-            if (produkt_count == 0)
-            {
-                Console.WriteLine("No products available");
-                Console.ReadLine();
-                return;
-            }
+
 
             //Schleife that checks the products and for every added one shows details
             for (int i = 0; i < produkt_count; i++)
@@ -381,7 +352,7 @@ namespace Projekt_Klausur
                 Console.WriteLine($"{produkt_preis[i]} €");
             }
 
-            if (produkt_count >= 20)
+            if (produkt_count >= produkt_name.Length)
             {
                 Console.WriteLine("Storage full boo!!");
                 Console.ReadLine();
@@ -406,20 +377,11 @@ namespace Projekt_Klausur
             Console.WriteLine("Product name: ");
             string name = Console.ReadLine()!;
 
-
             Console.WriteLine("Amount: ");
             int amount = Convert.ToInt32(Console.ReadLine());
 
-
             Console.WriteLine("Price: ");
             decimal price = Convert.ToDecimal(Console.ReadLine());
-
-            if (produkt_count >= produkt_name.Length)
-            {
-                Console.WriteLine("Storage full boo!!");
-                Console.ReadLine();
-                return;
-            }
 
             // all the new products are added to the array
             produkt_name[produkt_count] = name;
@@ -431,7 +393,6 @@ namespace Projekt_Klausur
             Console.ReadLine();
 
         }
-
 
 
         static void DeleteProduct()
@@ -480,18 +441,18 @@ namespace Projekt_Klausur
             produkt_count += 3;
         }
 
-        static void FirstKundeBestellungen()
+        static void FirstKundeBestellung()
         {
             kunde_bestellungen[0] = "Mouse";
             kunde_bestellungen[1] = "Keyboard";
-            kunde_bestellungen_count = 2;
+            bestellungen_count += 2;
         }
 
 
         static void Main(string[] args)
         {
             FirstProducts();
-            FirstKundeBestellungen();
+            FirstKundeBestellung();
             Login();
         }
 
