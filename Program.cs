@@ -25,29 +25,35 @@ namespace Projekt_Klausur
             while (first_loop)
             {
 
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("══════════════════════════════════════════════════════════════════════");
+                Console.WriteLine("       █████╗  ██████╗ ██████╗███████╗███████╗███████╗");
+                Console.WriteLine("      ██╔══██╗██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝");
+                Console.WriteLine("      ███████║██║     ██║     █████╗  ███████╗███████╗");
+                Console.WriteLine("      ██╔══██║██║     ██║     ██╔══╝  ╚════██║╚════██║");
+                Console.WriteLine("      ██║  ██║╚██████╗╚██████╗███████╗███████║███████║");
+                Console.WriteLine("      ╚═╝  ╚═╝ ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("               ◤ AUTHENTICATION TERMINAL ◢");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("                 SELECT USER PROFILE\r\n");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("          ╭──────────────────────────────╮");
+                Console.WriteLine("          │  [ M ]   MANAGER             │");
+                Console.WriteLine("          │                              │");
+                Console.WriteLine("          │  [ K ]   KUNDE               │");
+                Console.WriteLine("          │                              │");
+                Console.WriteLine("          │  [ L ]   LIEFERANT           │");
+                Console.WriteLine("          ╰──────────────────────────────╯");
 
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("                    Who is tryna get in the server??\n");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("                    >>> INPUT: ");
+                Console.WriteLine("══════════════════════════════════════════════════════════════════════");
                 Console.ResetColor();
-
-                Console.WriteLine("                       ==========================");
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("                       ||   (M) ");
-                Console.ResetColor();
-                Console.WriteLine("Manager        ||   ");
-                Console.WriteLine("                       ==========================");
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("                       ||   (K) ");
-                Console.ResetColor();
-                Console.WriteLine("Kunde          ||   ");
-                Console.WriteLine("                       ==========================");
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("                       ||   (L) ");
-                Console.ResetColor();
-                Console.WriteLine("Lieferant      ||   ");
-                Console.WriteLine("                       ==========================");
 
 
                 char user = Console.ReadKey().KeyChar;
@@ -58,99 +64,62 @@ namespace Projekt_Klausur
 
                     case 'M':
 
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("                    === ACCESS PANEL ===");
-                        Console.ResetColor();
-
-                        Console.WriteLine("                 Please give your name in: ");
-                        Console.WriteLine();
-                        string M_name = Console.ReadLine()!;
-                        Console.WriteLine();
-
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("                  --- ACCESS GRANTED!! ---");
-                        Console.ResetColor();
-                        Console.WriteLine();
-
-                        Console.Write($"                    Welcome back ");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write($"{M_name} 😘");
-                        Console.WriteLine("!!");
-                        Console.ResetColor();
-
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        Console.WriteLine("Enter to keep going..!!");
-                        Console.ReadLine();
-                        Console.Clear();
-
+                        access_panel();
                         Auswahl_Manager();
 
                         break;
 
-
                     case 'K':
 
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("       === ACCESS PANEL ===");
-                        Console.ResetColor();
-                        Console.WriteLine("    Please give your name in: ");
-                        Console.WriteLine();
-                        string K_name = Console.ReadLine()!;
-                        Console.WriteLine();
-
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("      --- ACCESS GRANTED!! ---");
-                        Console.ResetColor();
-                        Console.WriteLine();
-
-                        Console.Write($"    Welcome back ");
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write($"{K_name} 😘");
-                        Console.WriteLine("!!");
-                        Console.ResetColor();
-                        Console.WriteLine("Pls push whatever key to keep going!!");
-                        Console.ReadLine();
-                        Console.Clear();
-
+                        access_panel();
                         Auswahl_Kunde();
 
                         break;
 
 
                     case 'L':
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("       === ACCESS PANEL ===");
-                        Console.ResetColor();
-                        Console.WriteLine("    Please give your name in: ");
-                        Console.WriteLine();
-                        string L_name = Console.ReadLine()!;
-                        Console.WriteLine();
 
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("      --- ACCESS GRANTED!! ---");
-                        Console.ResetColor();
-                        Console.WriteLine();
-
-                        Console.Write($"    Welcome back ");
-
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write($"{L_name} 😘");
-                        Console.WriteLine("!!");
-                        Console.ResetColor();
-
-                        Console.WriteLine("Pls push whatever key to keep going!!");
-                        Console.ReadLine();
-                        Console.Clear();
-
+                        access_panel();
                         Auswahl_Lieferant();
 
                         break;
-
                 }
 
             }
+        }
+
+        static void access_panel()
+        {
+            Console.WriteLine("████████████████████████████████████████████");
+            Console.WriteLine();
+            Console.WriteLine("          NEXUS ACCESS NODE");
+            Console.WriteLine();
+            Console.WriteLine("████████████████████████████████████████████");
+            Console.WriteLine();
+            Console.WriteLine("Loading security modules...");
+            Console.WriteLine();
+            Console.WriteLine("> ENTER OPERATOR NAME");
+            Console.ReadLine();
+
+            Console.Clear();
+
+            Console.WriteLine("████████████████████████████████████████████");
+            Console.WriteLine();
+            Console.WriteLine("          ACCESS GRANTED");
+            Console.WriteLine();
+            Console.WriteLine("████████████████████████████████████████████");
+            Console.WriteLine();
+            Console.WriteLine("Connection Status : ONLINE");
+            Console.WriteLine("Firewall          : ACTIVE");
+            Console.WriteLine("Encryption        : ENABLED");
+            Console.WriteLine();
+            Console.WriteLine("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+            Console.WriteLine();
+            Console.WriteLine("Press [ ENTER ] to continue...");
+            Console.ReadLine();
+            Console.Clear();
+
+
         }
 
 
@@ -161,32 +130,7 @@ namespace Projekt_Klausur
             bool second_loop = true;
             while (second_loop)
             {
-
-
-                //Console.Clear();
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Bet, what do we wanna do today??!!\n");
-                Console.ResetColor();
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("(1) ");
-                Console.ResetColor();
-                Console.WriteLine("Check the Produkts!!");
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("(2) ");
-                Console.ResetColor();
-                Console.WriteLine("Add a new Produkt!!");
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("(3) ");
-                Console.ResetColor();
-                Console.WriteLine("Delete a Produkt!!");
-
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.Write("(X) ");
-                Console.ResetColor();
-                Console.WriteLine("Exit");
+                Control_Panel();
 
                 char auswahl = ' ';
                 auswahl = Console.ReadKey().KeyChar;
@@ -196,23 +140,24 @@ namespace Projekt_Klausur
                 {
 
                     case '1':
-                        Console.WriteLine("Aight bet, here are all the produkts!!");
                         show_products();
 
                         break;
 
                     case '2':
-                        Console.WriteLine("Let´s add a new produkt!!");
                         AddProduct();
                         break;
 
                     case '3':
-                        Console.WriteLine("Let´s delete a produkt!!");
                         DeleteProduct();
                         break;
 
                     case 'X':
-                        Console.WriteLine("Sad to see you go, please come to visit us again soon!!");
+
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.Clear();
+                        Login();
                         break;
                 }
                 Console.Clear();
@@ -229,12 +174,10 @@ namespace Projekt_Klausur
             while (third_loop)
             {
 
-
-
                 Console.WriteLine("Bet, what do we wanna do today??!!");
                 Console.WriteLine("(1) Check the Produkts!!");
-                Console.WriteLine("(2) Wanna order something??");
-                Console.WriteLine("(3) Wanna give something back??");
+                Console.WriteLine("(2) Show your orders");
+                Console.WriteLine("(X) Log Out");
                 char auswahl1 = ' ';
                 auswahl1 = Console.ReadKey().KeyChar;
 
@@ -242,19 +185,17 @@ namespace Projekt_Klausur
                 {
 
                     case '1':
-                        Console.WriteLine("Here are all our produkts");
                         // Calling the Produkt Methode to show the available items 
                         show_products();
 
                         break;
                     case '2':
-                        Console.WriteLine("What produkt would you wanna have??");
-                        //need to make another methode for the produkt chosen
+                        Console.WriteLine("=== SHOWING YOUR BESTELLUNG ===");
+
                         break;
 
                     case '3':
-
-                        Console.WriteLine("");
+                        Login();
                         break;
                 }
 
@@ -275,7 +216,6 @@ namespace Projekt_Klausur
 
                 Console.WriteLine("Bet, what do we wanna do today??!!");
                 Console.WriteLine("(1) Check the Produkts!!");
-
                 Console.WriteLine("(2) Deliver Produkts");
 
                 char auswahl2 = ' ';
@@ -285,7 +225,6 @@ namespace Projekt_Klausur
                 {
 
                     case '1':
-                        Console.WriteLine("Aight bet, here are all the produkts!!");
                         show_products();
                         break;
 
@@ -297,6 +236,28 @@ namespace Projekt_Klausur
             }
 
         }
+
+        static void Control_Panel()
+        {
+            Console.WriteLine("═══════════════════════════════════════════════════════");
+            Console.WriteLine();
+            Console.WriteLine("             NEXUS CONTROL PANEL");
+            Console.WriteLine();
+            Console.WriteLine("═══════════════════════════════════════════════════════");
+            Console.WriteLine();
+            Console.WriteLine(" Select an operation:");
+            Console.WriteLine();
+            Console.WriteLine("     [1] 📦  Product Inventory");
+            Console.WriteLine();
+            Console.WriteLine("     [2] ➕  Register New Product");
+            Console.WriteLine();
+            Console.WriteLine("     [3] 🗑   Remove Product");
+            Console.WriteLine();
+            Console.WriteLine("     [X] \u23fb  Logout");
+        }
+
+
+
         // Methode that shows all the saved products
         static void show_products()
         {
@@ -325,6 +286,13 @@ namespace Projekt_Klausur
                 Console.WriteLine($"{produkt_preis[i]} €");
             }
 
+            if (produkt_count >= 20)
+            {
+                Console.WriteLine("Storage full boo!!");
+                Console.ReadLine();
+                return;
+            }
+
             Console.WriteLine();
             Console.WriteLine("Press Enter to Continue!!");
             Console.ReadLine();
@@ -340,7 +308,6 @@ namespace Projekt_Klausur
             Console.WriteLine("=== ADD PRODUCT ===");
             Console.WriteLine();
 
-
             Console.WriteLine("Product name: ");
             string name = Console.ReadLine()!;
 
@@ -353,7 +320,6 @@ namespace Projekt_Klausur
             decimal price = Convert.ToDecimal(Console.ReadLine());
 
 
-
             for (int i = 0; i < produkt_count; i++)
             {
 
@@ -362,6 +328,7 @@ namespace Projekt_Klausur
                 produkt_anzahl[produkt_count] = amount;
                 produkt_preis[produkt_count] = price;
             }
+
             produkt_count++;
             Console.WriteLine("Product added!!");
             Console.ReadLine();
@@ -383,9 +350,10 @@ namespace Projekt_Klausur
 
             Console.WriteLine();
             Console.WriteLine("Select product to delete: ");
-            string Delete = Console.ReadLine()!;
+            int Delete = Convert.ToInt32(Console.ReadLine());
+            //TODO
 
-            for (int i = 0; i < produkt_count - 1; i++)
+            for (int i = Delete; i < produkt_count - 1; i++)
             {
                 produkt_name[i] = produkt_name[i + 1];
                 produkt_anzahl[i] = produkt_anzahl[i + 1];
@@ -412,7 +380,7 @@ namespace Projekt_Klausur
             produkt_anzahl[2] = 15;
             produkt_preis[2] = 79.99M;
 
-            produkt_count = 3;
+            produkt_count += 3;
         }
 
 
