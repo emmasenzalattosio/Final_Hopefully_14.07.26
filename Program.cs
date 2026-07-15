@@ -13,6 +13,7 @@ namespace Projekt_Klausur
         // Kunde data
         static string[] kunde_name = new string[20];
         static string[] kunde_bestellungen = new string[20];
+        static int[] kunde_bestellmenge = new int[20];
         static int bestellungen_count = 0;
 
         static void Emoji()
@@ -252,8 +253,9 @@ namespace Projekt_Klausur
                 Console.WriteLine(" |                                     |");
                 Console.WriteLine($" │ PRODUCT: {kunde_bestellungen[i],-18}         |");
                 Console.WriteLine(" |                                     |");
-                
-                Console.WriteLine($" | PRICE: {kunde_price,-18}           |");
+                Console.WriteLine($" │ QUANTITY: {kunde_bestellmenge[i],-17}        |");
+                Console.WriteLine(" |                                     |");
+                Console.WriteLine($" | PRICE: {kunde_price * kunde_bestellmenge[i],-18}           |");
                 Console.WriteLine(" └─────────────────────────────────────┘");
             }
 
@@ -282,12 +284,46 @@ namespace Projekt_Klausur
             }
 
             Console.WriteLine();
-            Console.Write(">>> PRODUCT TO ADD: ");
-            int product_add = Convert.ToInt32(Console.ReadLine());
+            Console.Write(">>> PRODUCT NAME: ");
+            string product_add = Console.ReadLine()!;
 
+            Console.Write(">>> QUANTITY: ");
+            int order_menge = 0;
+            if (!int.TryParse(Console.ReadLine(), out order_menge) || order_menge <= 0)
+            {
+                Console.WriteLine(">>> INVALID QUANTITY.");
+                Console.WriteLine(">>> PRESS ENTER TO CONTINUE...");
+                Console.ReadLine();
+                Console.Clear();
+                return;
+            }
 
-            kunde_bestellungen[bestellungen_count] = produkt_name[product_add];
-            bestellungen_count++;
+            bool gefunden = false;
+            for (int x = 0; x < produkt_count; x++)
+            {
+                if (string.Equals(produkt_name[x], product_add, StringComparison.OrdinalIgnoreCase))
+                {
+                    gefunden = true;
+                    if (produkt_anzahl[x] >= order_menge)
+                    {
+                        kunde_bestellungen[bestellungen_count] = produkt_name[x];
+                        kunde_bestellmenge[bestellungen_count] = order_menge;
+                        bestellungen_count++;
+                        produkt_anzahl[x] -= order_menge;
+                        Console.WriteLine($">>> ORDER PLACED! New stock of {produkt_name[x]}: {produkt_anzahl[x]}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($">>> NOT ENOUGH STOCK! Available: {produkt_anzahl[x]}");
+                    }
+                    break;
+                }
+            }
+
+            if (!gefunden)
+            {
+                Console.WriteLine(">>> PRODUCT NOT FOUND.");
+            }
 
             Console.WriteLine(">>> PRESS ENTER TO CONTINUE...");
             Console.ReadLine();
@@ -494,7 +530,9 @@ namespace Projekt_Klausur
         static void FirstKundeBestellung()
         {
             kunde_bestellungen[0] = "Laptop";
+            kunde_bestellmenge[0] = 1;
             kunde_bestellungen[1] = "Mouse";
+            kunde_bestellmenge[1] = 1;
             bestellungen_count += 2;
         }
 
@@ -598,6 +636,27 @@ namespace Projekt_Klausur
             Console.WriteLine(">> USER DETECTED");
             Console.WriteLine($"   ID : ");
             Console.WriteLine();
+            Console.WriteLine("───────────────────────────────────────────────────────");
+            Console.WriteLine();
+
+            bool low_stock_warning = false;
+            for (int i = 0; i < produkt_count; i++)
+            {
+                if (produkt_anzahl[i] < 5)
+                {
+                    if (!low_stock_warning)
+                    {
+                        Console.WriteLine(" ⚠  LOW STOCK NOTIFICATIONS:");
+                        low_stock_warning = true;
+                    }
+                    Console.WriteLine($"    Need to stock up: {produkt_name[i]} (aktueller Bestand: {produkt_anzahl[i]})");
+                }
+            }
+            if (low_stock_warning)
+            {
+                Console.WriteLine();
+            }
+
             Console.WriteLine("───────────────────────────────────────────────────────");
             Console.WriteLine();
             Console.WriteLine(" Select an operation:");
