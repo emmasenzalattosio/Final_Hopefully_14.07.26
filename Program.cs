@@ -92,15 +92,17 @@ namespace Projekt_Klausur
             }
         }
 
-        
-        
-        
-        
+
+
+
+
+
         //2nd Methode for the Manager rechte
         static void Auswahl_Manager()
         {
             Emoji();
             bool second_loop = true;
+
             while (second_loop)
             {
                 Manager_Menu();
@@ -193,6 +195,7 @@ namespace Projekt_Klausur
 
                 char auswahl2 = ' ';
                 auswahl2 = Console.ReadKey().KeyChar;
+                Console.Clear();
 
                 switch (char.ToUpper(auswahl2))
                 {
@@ -220,6 +223,8 @@ namespace Projekt_Klausur
 
 
 
+
+
         //Methoden for the Kunde rechte
         static void ShowKundeBestellung()
         {
@@ -232,12 +237,22 @@ namespace Projekt_Klausur
 
             for (int i = 0; i < bestellungen_count; i++)
             {
+                decimal kunde_price = 0;
+                for (int x = 0; x < produkt_name.Length; x++)
+                {
+                    if (produkt_name[x] == kunde_bestellungen[i])
+                    {
+                        kunde_price = produkt_preis[x];
+                    }
+                }
+                
                 Console.WriteLine(" ┌─────────────────────────────────────┐");
-                Console.WriteLine($" │ ORDER: {i + 1,-28} |");
+                Console.WriteLine($" │ ORDER: {i,-28} |");
                 Console.WriteLine(" |                                     |");
                 Console.WriteLine($" │ PRODUCT: {kunde_bestellungen[i],-18}         |");
                 Console.WriteLine(" |                                     |");
-                Console.WriteLine($" | PRICE: {produkt_preis[i],-18}           |");
+                
+                Console.WriteLine($" | PRICE: {kunde_price,-18}           |");
                 Console.WriteLine(" └─────────────────────────────────────┘");
             }
 
@@ -257,9 +272,9 @@ namespace Projekt_Klausur
             for (int i = 0; i < produkt_count; i++)
             {
                 Console.WriteLine(" ┌─────────────────────────────────────┐");
-                Console.WriteLine($" │ ORDER: {i + 1,-28} |");
+                Console.WriteLine($" │ ORDER: {i,-28} |");
                 Console.WriteLine(" |                                     |");
-                Console.WriteLine($" │ PRODUCT: {kunde_bestellungen[i],-18}         |");
+                Console.WriteLine($" │ PRODUCT: {produkt_name[i],-18}         |");
                 Console.WriteLine(" |                                     |");
                 Console.WriteLine($" | PRICE: {produkt_preis[i],-18}           |");
                 Console.WriteLine(" └─────────────────────────────────────┘");
@@ -305,7 +320,7 @@ namespace Projekt_Klausur
 
                 Console.WriteLine($"     | {i}  | {produkt_name[i],-12}   | {produkt_anzahl[i],-7} | {produkt_preis[i],-11} | ");
             }
-                Console.WriteLine("     └────┴────────────────┴─────────┴─────────────┘");
+            Console.WriteLine("     └────┴────────────────┴─────────┴─────────────┘");
 
             if (produkt_count >= produkt_name.Length)
             {
@@ -357,7 +372,7 @@ namespace Projekt_Klausur
                 int stock_amount = Convert.ToInt32(Console.ReadLine());
 
                 produkt_anzahl[stock] += stock_amount;
-                produkt_count++;
+
                 Console.WriteLine("LIEFERUNG COMPLETE!");
                 Console.ReadLine();
                 Console.Clear();
@@ -387,7 +402,7 @@ namespace Projekt_Klausur
             Console.WriteLine("    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝   ╚══════╝");
             Console.WriteLine();
             Console.WriteLine();
-  
+
             Console.WriteLine();
 
             Console.WriteLine(">>PRODUCT NAME: ");
@@ -455,6 +470,7 @@ namespace Projekt_Klausur
 
 
 
+
         // arrays full of the festgelegte produkte
         static void FirstProducts()
         {
@@ -476,10 +492,11 @@ namespace Projekt_Klausur
 
         static void FirstKundeBestellung()
         {
-            kunde_bestellungen[0] = "Mouse";
-            kunde_bestellungen[1] = "Keyboard";
+            kunde_bestellungen[0] = "Laptop";
+            kunde_bestellungen[1] = "Mouse";
             bestellungen_count += 2;
         }
+
 
 
 
@@ -569,6 +586,7 @@ namespace Projekt_Klausur
 
         static void lieferant_menu()
         {
+            //Console.Clear();
             Console.WriteLine("═══════════════════════════════════════════════════════");
             Console.WriteLine();
             Console.WriteLine("                NEXUS TERMINAL");
