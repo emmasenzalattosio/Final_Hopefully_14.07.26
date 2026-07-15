@@ -238,6 +238,7 @@ namespace Projekt_Klausur
             for (int i = 0; i < bestellungen_count; i++)
             {
                 decimal kunde_price = 0;
+
                 for (int x = 0; x < produkt_name.Length; x++)
                 {
                     if (produkt_name[x] == kunde_bestellungen[i])
@@ -282,10 +283,10 @@ namespace Projekt_Klausur
 
             Console.WriteLine();
             Console.Write(">>> PRODUCT TO ADD: ");
-            int index = Convert.ToInt32(Console.ReadLine());
+            int product_add = Convert.ToInt32(Console.ReadLine());
 
 
-            kunde_bestellungen[bestellungen_count] = produkt_name[index];
+            kunde_bestellungen[bestellungen_count] = produkt_name[product_add];
             bestellungen_count++;
 
             Console.WriteLine(">>> PRESS ENTER TO CONTINUE...");
