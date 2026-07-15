@@ -191,9 +191,6 @@ namespace Projekt_Klausur
             {
                 lieferant_menu();
 
-
-                Console.WriteLine("(2) Deliver Produkts");
-
                 char auswahl2 = ' ';
                 auswahl2 = Console.ReadKey().KeyChar;
 
@@ -326,30 +323,46 @@ namespace Projekt_Klausur
         // TO DO
         static void produkt_lieferung()
         {
-            Emoji();
-            Console.Clear();
-            Console.WriteLine("=== Lieferung produkte ===");
-            Console.WriteLine();
 
-            for (int i = 0; i < produkt_count; i++)
-            {
-                Console.WriteLine($"[{i}] {produkt_name[i]} {produkt_anzahl[i]} {produkt_preis[i]}");
-            }
-
-            Console.WriteLine("Select a produkt to stock up");
-            int stock = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("How much??");
-            int stock_amount = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = stock_amount = 0; i < produkt_count; i++)
             {
 
-                
+
+                Emoji();
+                Console.Clear();
+                Console.WriteLine(" ██╗     ██╗███████╗███████╗██████╗ ██╗   ██╗███╗   ██╗███╗   ██╗ ██████╗ ");
+                Console.WriteLine(" ██║     ██║██╔════╝██╔════╝██╔══██╗██║   ██║████╗  ██║████╗  ██║██╔════╝ ");
+                Console.WriteLine(" ██║     ██║█████╗  █████╗  ██████╔╝██║   ██║██╔██╗ ██║██╔██╗ ██║██║  ███╗");
+                Console.WriteLine(" ██║     ██║██╔══╝  ██╔══╝  ██╔══██╗██║   ██║██║╚██╗██║██║╚██╗██║██║   ██║");
+                Console.WriteLine(" ███████╗██║██║     ███████╗██║  ██║╚██████╔╝██║ ╚████║██║ ╚████║╚██████╔╝");
+                Console.WriteLine(" ╚══════╝╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═══╝ ╚═════╝ ");
+                Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine("    ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗███████╗");
+                Console.WriteLine("    ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝██╔════╝");
+                Console.WriteLine("    ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║   ███████╗");
+                Console.WriteLine("    ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║   ╚════██║");
+                Console.WriteLine("    ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║   ███████║");
+                Console.WriteLine("    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝   ╚══════╝");
+                Console.WriteLine();
+
+                for (int i = 0; i < produkt_count; i++)
+                {
+                    Console.WriteLine($"[{i}] {produkt_name[i]} {produkt_anzahl[i]} {produkt_preis[i]}");
+                }
+
+                Console.WriteLine("SELECT A PRODUCT TO STOCK UP: ");
+                int stock = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("INSERT THE AMOUNT HERE");
+                int stock_amount = Convert.ToInt32(Console.ReadLine());
+
+                produkt_anzahl[stock] += stock_amount;
+                produkt_count++;
+                Console.WriteLine("LIEFERUNG COMPLETE!");
+                Console.ReadLine();
+                Console.Clear();
 
             }
-            produkt_count++;
-            Console.WriteLine("Lieferung complete!!");
         }
 
 
@@ -365,12 +378,13 @@ namespace Projekt_Klausur
             Console.WriteLine("                    ██║  ██║██████╔╝██████╔╝");
             Console.WriteLine("                    ╚═╝  ╚═╝╚═════╝ ╚═════╝ ");
             Console.WriteLine();
-            Console.WriteLine("    ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗");
-            Console.WriteLine("    ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝ ");
-            Console.WriteLine("    ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║    ");
-            Console.WriteLine("    ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║    ");
-            Console.WriteLine("    ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║   ");
-            Console.WriteLine("    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝   ");
+            Console.WriteLine();
+            Console.WriteLine("    ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗███████╗");
+            Console.WriteLine("    ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝██╔════╝");
+            Console.WriteLine("    ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║   ███████╗");
+            Console.WriteLine("    ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║   ╚════██║");
+            Console.WriteLine("    ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║   ███████║");
+            Console.WriteLine("    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝   ╚══════╝");
             Console.WriteLine();
             Console.WriteLine();
   
@@ -400,7 +414,20 @@ namespace Projekt_Klausur
         static void DeleteProduct()
         {
             Emoji();
-            Console.WriteLine(" === DELETE PRODUCT ===");
+            Console.WriteLine("    ██████╗ ███████╗██╗     ███████╗████████╗███████╗ ");
+            Console.WriteLine("    ██╔══██╗██╔════╝██║     ██╔════╝╚══██╔══╝██╔════╝ ");
+            Console.WriteLine("    ██║  ██║█████╗  ██║     █████╗     ██║   █████╗   ");
+            Console.WriteLine("    ██║  ██║██╔══╝  ██║     ██╔══╝     ██║   ██╔══╝   ");
+            Console.WriteLine("    ██████╔╝███████╗███████╗███████╗   ██║   ███████╗ ");
+            Console.WriteLine("    ╚═════╝ ╚══════╝╚══════╝╚══════╝   ╚═╝   ╚══════╝ ");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("    ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗███████╗");
+            Console.WriteLine("    ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝██╔════╝");
+            Console.WriteLine("    ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║   ███████╗");
+            Console.WriteLine("    ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║   ╚════██║");
+            Console.WriteLine("    ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║   ███████║");
+            Console.WriteLine("    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝   ╚══════╝");
             Console.WriteLine();
 
             for (int i = 0; i < produkt_count; i++)
@@ -409,7 +436,7 @@ namespace Projekt_Klausur
             }
 
             Console.WriteLine();
-            Console.WriteLine("Select product to delete: ");
+            Console.WriteLine(">>SELECT PRODUCT TO DELETE: ");
             int Delete = Convert.ToInt32(Console.ReadLine());
             //TODO
 
@@ -421,7 +448,7 @@ namespace Projekt_Klausur
             }
 
             produkt_count--;
-            Console.WriteLine("Produkt deleted!!");
+            Console.WriteLine("PRODUCT DELETED!!");
         }
 
 
