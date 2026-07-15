@@ -13,6 +13,7 @@ namespace Projekt_Klausur
         // Kunde data
         static string[] kunde_name = new string[20];
         static string[] kunde_bestellungen = new string[20];
+        static int[] kunde_bestellmenge = new int[20];
         static int bestellungen_count = 0;
 
         static void Emoji()
@@ -191,6 +192,7 @@ namespace Projekt_Klausur
             bool fourth_loop = true;
             while (fourth_loop)
             {
+                Stock_Notification();
                 lieferant_menu();
 
                 char auswahl2 = ' ';
@@ -221,7 +223,21 @@ namespace Projekt_Klausur
         }
 
 
+        static void Stock_Notification()
+        {
+            Console.WriteLine();
+            Console.WriteLine("STOCK NOTIFICATION");
 
+
+            for (int i = 0; i < produkt_count; i++)
+            {
+                if (produkt_anzahl[i] < 5)
+                {
+
+                    Console.WriteLine($"RESTOCK NEEDED: {produkt_name[i]} - LEFT PIECES: {produkt_anzahl[i]}");
+                }
+            }
+        }
 
 
 
@@ -246,14 +262,17 @@ namespace Projekt_Klausur
                         kunde_price = produkt_preis[x];
                     }
                 }
-                
+
+                int menge = kunde_bestellmenge[i];
+                decimal gesamt = kunde_price * menge;
+
                 Console.WriteLine(" ┌─────────────────────────────────────┐");
                 Console.WriteLine($" │ ORDER: {i,-28} |");
                 Console.WriteLine(" |                                     |");
                 Console.WriteLine($" │ PRODUCT: {kunde_bestellungen[i],-18}         |");
                 Console.WriteLine(" |                                     |");
-                
                 Console.WriteLine($" | PRICE: {kunde_price,-18}           |");
+                Console.WriteLine($" │ TOTAL: {gesamt,-27}|");
                 Console.WriteLine(" └─────────────────────────────────────┘");
             }
 
@@ -285,9 +304,16 @@ namespace Projekt_Klausur
             Console.Write(">>> PRODUCT TO ADD: ");
             int product_add = Convert.ToInt32(Console.ReadLine());
 
+            Console.WriteLine(">>> PRODUCT QUANTITY: ");
+            int product_menge = Convert.ToInt32(Console.ReadLine());
 
+            //Saving the order - Here the user eingabe is saved in the array at the count position
             kunde_bestellungen[bestellungen_count] = produkt_name[product_add];
+            kunde_bestellmenge[bestellungen_count] = product_menge;
             bestellungen_count++;
+
+            //Update of the amount in the list = to the ordered amount (subtraction)
+            produkt_anzahl[product_add] -= product_menge;
 
             Console.WriteLine(">>> PRESS ENTER TO CONTINUE...");
             Console.ReadLine();
@@ -494,7 +520,11 @@ namespace Projekt_Klausur
         static void FirstKundeBestellung()
         {
             kunde_bestellungen[0] = "Laptop";
+            kunde_bestellmenge[0] = 1;
+
             kunde_bestellungen[1] = "Mouse";
+            kunde_bestellmenge[1] = 1;
+
             bestellungen_count += 2;
         }
 
