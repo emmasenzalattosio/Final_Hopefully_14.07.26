@@ -314,26 +314,26 @@ namespace Projekt_Klausur
 
         static void Kunde_Active_Bestellung()
         {
-            Console.WriteLine("══════════════════════════════════════════════════════");
-            Console.WriteLine("                  ACCESS TERMINAL");
-            Console.WriteLine("══════════════════════════════════════════════════════");
+            Console.WriteLine("      ══════════════════════════════════════════════════════");
+            Console.WriteLine("                       ACCESS TERMINAL");
+            Console.WriteLine("      ══════════════════════════════════════════════════════");
 
             for (int i = 0; i < produkt_count; i++)
             {
-                Console.WriteLine(" ┌─────────────────────────────────────┐");
-                Console.WriteLine($" │ ORDER: {i,-28} |");
-                Console.WriteLine(" |                                     |");
-                Console.WriteLine($" │ PRODUCT: {produkt_name[i],-18}         |");
-                Console.WriteLine(" |                                     |");
-                Console.WriteLine($" | PRICE: {produkt_preis[i],-18}           |");
-                Console.WriteLine(" └─────────────────────────────────────┘");
+                Console.WriteLine("       ┌─────────────────────────────────────┐");
+                Console.WriteLine($"       │ ORDER: {i,-28} |");
+                Console.WriteLine("       |                                     |");
+                Console.WriteLine($"       │ PRODUCT: {produkt_name[i],-18}         |");
+                Console.WriteLine("       |                                     |");
+                Console.WriteLine($"       | PRICE: {produkt_preis[i],-18}           |");
+                Console.WriteLine("       └─────────────────────────────────────┘");
             }
 
             Console.WriteLine();
-            Console.Write(">>> PRODUCT TO ADD: ");
+            Console.Write("      >>> PRODUCT TO ADD: ");
             int product_add = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine(">>> PRODUCT QUANTITY: ");
+            Console.WriteLine("      >>> PRODUCT QUANTITY: ");
             int product_menge = Convert.ToInt32(Console.ReadLine());
 
             //Saving the order - Here the user eingabe is saved in the array at the count position
@@ -347,7 +347,8 @@ namespace Projekt_Klausur
             Console.WriteLine(">>> PRESS ENTER TO CONTINUE...");
             Console.ReadLine();
             Console.Clear();
-        }    
+
+        }
 
 
 
@@ -422,17 +423,17 @@ namespace Projekt_Klausur
             Console.WriteLine();
             Console.WriteLine();
 
-            Console.WriteLine("                   ┌────┬────────────────┬─────────┬─────────────┐");
-            Console.WriteLine("                   │ ID │ PRODUCT        │ STOCK   │ PRICE       │");
-            Console.WriteLine("                   ├────┼────────────────┼─────────┼─────────────┤");
+            Console.WriteLine("             ┌────┬──────────────────────────────┬─────────┬─────────────┐");
+            Console.WriteLine("             │ ID │             PRODUCT          │ STOCK   │ PRICE       │");
+            Console.WriteLine("             ├────┼──────────────────────────────┼─────────┼─────────────┤");
 
             //Schleife that checks the products and for every added one shows details
             for (int i = 0; i < produkt_count; i++)
             {
 
-                Console.WriteLine($"                   | {i}  | {produkt_name[i],-12}   | {produkt_anzahl[i],-7} | {produkt_preis[i],-11} | ");
+                Console.WriteLine($"             | {i}  | {produkt_name[i],-28} | {produkt_anzahl[i],-7} | {produkt_preis[i],-10:0.00}€ | ");
             }
-            Console.WriteLine("                   └────┴────────────────┴─────────┴─────────────┘");
+            Console.WriteLine("             └────┴──────────────────────────────┴─────────┴─────────────┘");
 
             if (produkt_count >= produkt_name.Length)
             {
@@ -488,6 +489,16 @@ namespace Projekt_Klausur
                 Console.ReadLine();
                 Console.Clear();
 
+
+                // AUTOMATIC RESTOCK (BOOOO  BOOORRIINNGGG)
+
+                //if (produkt_anzahl[stock] < 5)
+                //{
+                //    stock_amount = 10;
+
+                //    produkt_anzahl[stock] += stock_amount;
+                //}
+
             }
         }
 
@@ -499,19 +510,27 @@ namespace Projekt_Klausur
         static void FirstProducts()
         {
             Emoji();
-            produkt_name[0] = "Laptop";
-            produkt_anzahl[0] = 5;
-            produkt_preis[0] = 899.99M;
+            produkt_name[0] = "Hasans Protein Milch";
+            produkt_anzahl[0] = 100;
+            produkt_preis[0] = 67.67M;
 
-            produkt_name[1] = "Mouse";
-            produkt_anzahl[1] = 20;
-            produkt_preis[1] = 29.99M;
+            produkt_name[1] = "Spongiops Möhren";
+            produkt_anzahl[1] = 5;
+            produkt_preis[1] = 2.99M;
 
-            produkt_name[2] = "Keyboard";
-            produkt_anzahl[2] = 15;
-            produkt_preis[2] = 79.99M;
+            produkt_name[2] = "Josis Special Spielzeuge";
+            produkt_anzahl[2] = 1500;
+            produkt_preis[2] = 59.99M;
 
-            produkt_count += 3;
+            produkt_name[3] = "Ticket - Sashas S** Dungeon";
+            produkt_anzahl[3] = 69;
+            produkt_preis[3] = 69.69M;
+            
+            produkt_name[4] = "Aykuts Hubschrauber";
+            produkt_anzahl[4] = 1;
+            produkt_preis[4] = 100000M;
+
+            produkt_count += 5;
         }
 
         static void FirstKundeBestellung()
