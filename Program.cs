@@ -344,7 +344,8 @@ namespace Projekt_Klausur
             Console.WriteLine(">>> PRESS ENTER TO CONTINUE...");
             Console.ReadLine();
             Console.Clear();
-        }
+        }    
+
 
 
 
