@@ -4,6 +4,9 @@ namespace Projekt_Klausur
 {
     internal class Program
     {
+        // LAYING OF THE NEEDED ARRAYS (in clss so they are verwendabar)
+
+
         static string[] produkt_name = new string[20];
         static int[] produkt_anzahl = new int[20];
 
@@ -21,7 +24,7 @@ namespace Projekt_Klausur
             Console.OutputEncoding = System.Text.Encoding.UTF8;
         }
 
-        // First menü - Choosing of the user!!
+        // ACCESS MENU -- CHOOSE BENUTZER
         static void Login()
         {
             Emoji();
@@ -388,7 +391,7 @@ namespace Projekt_Klausur
 
         static void Stock_Notification()
         {
-            Console.WriteLine(">>> STOCK NOTIFICATION <<< ");
+            Console.WriteLine("          >>> STOCK NOTIFICATION <<< ");
             Console.WriteLine();
             for (int i = 0; i < produkt_count; i++)
             {
@@ -408,28 +411,28 @@ namespace Projekt_Klausur
         {
             Emoji();
             Console.Clear();
-            Console.WriteLine("██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗███████╗");
-            Console.WriteLine("██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝██╔════╝");
-            Console.WriteLine("██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║   ███████╗");
-            Console.WriteLine("██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║   ╚════██║");
-            Console.WriteLine("██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║   ███████║");
-            Console.WriteLine("╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚═════╝   ╚═╝   ╚══════╝ ");
+            Console.WriteLine("          ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗███████╗");
+            Console.WriteLine("          ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝██╔════╝");
+            Console.WriteLine("          ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║   ███████╗");
+            Console.WriteLine("          ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║   ╚════██║");
+            Console.WriteLine("          ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║   ███████║");
+            Console.WriteLine("          ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚═════╝   ╚═╝   ╚══════╝ ");
             Console.WriteLine();
-            Console.WriteLine("               ◢ PRODUCT INVENTORY TERMINAL ◣");
+            Console.WriteLine("                         ◢ PRODUCT INVENTORY TERMINAL ◣");
             Console.WriteLine();
             Console.WriteLine();
 
-            Console.WriteLine("     ┌────┬────────────────┬─────────┬─────────────┐");
-            Console.WriteLine("     │ ID │ PRODUCT        │ STOCK   │ PRICE       │");
-            Console.WriteLine("     ├────┼────────────────┼─────────┼─────────────┤");
+            Console.WriteLine("                   ┌────┬────────────────┬─────────┬─────────────┐");
+            Console.WriteLine("                   │ ID │ PRODUCT        │ STOCK   │ PRICE       │");
+            Console.WriteLine("                   ├────┼────────────────┼─────────┼─────────────┤");
 
             //Schleife that checks the products and for every added one shows details
             for (int i = 0; i < produkt_count; i++)
             {
 
-                Console.WriteLine($"     | {i}  | {produkt_name[i],-12}   | {produkt_anzahl[i],-7} | {produkt_preis[i],-11} | ");
+                Console.WriteLine($"                   | {i}  | {produkt_name[i],-12}   | {produkt_anzahl[i],-7} | {produkt_preis[i],-11} | ");
             }
-            Console.WriteLine("     └────┴────────────────┴─────────┴─────────────┘");
+            Console.WriteLine("                   └────┴────────────────┴─────────┴─────────────┘");
 
             if (produkt_count >= produkt_name.Length)
             {
@@ -452,20 +455,20 @@ namespace Projekt_Klausur
 
                 Emoji();
                 Console.Clear();
-                Console.WriteLine(" ██╗     ██╗███████╗███████╗██████╗ ██╗   ██╗███╗   ██╗███╗   ██╗ ██████╗ ");
-                Console.WriteLine(" ██║     ██║██╔════╝██╔════╝██╔══██╗██║   ██║████╗  ██║████╗  ██║██╔════╝ ");
-                Console.WriteLine(" ██║     ██║█████╗  █████╗  ██████╔╝██║   ██║██╔██╗ ██║██╔██╗ ██║██║  ███╗");
-                Console.WriteLine(" ██║     ██║██╔══╝  ██╔══╝  ██╔══██╗██║   ██║██║╚██╗██║██║╚██╗██║██║   ██║");
-                Console.WriteLine(" ███████╗██║██║     ███████╗██║  ██║╚██████╔╝██║ ╚████║██║ ╚████║╚██████╔╝");
-                Console.WriteLine(" ╚══════╝╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═══╝ ╚═════╝ ");
+                Console.WriteLine("       ██╗     ██╗███████╗███████╗██████╗ ██╗   ██╗███╗   ██╗███╗   ██╗ ██████╗ ");
+                Console.WriteLine("       ██║     ██║██╔════╝██╔════╝██╔══██╗██║   ██║████╗  ██║████╗  ██║██╔════╝ ");
+                Console.WriteLine("       ██║     ██║█████╗  █████╗  ██████╔╝██║   ██║██╔██╗ ██║██╔██╗ ██║██║  ███╗");
+                Console.WriteLine("       ██║     ██║██╔══╝  ██╔══╝  ██╔══██╗██║   ██║██║╚██╗██║██║╚██╗██║██║   ██║");
+                Console.WriteLine("       ███████╗██║██║     ███████╗██║  ██║╚██████╔╝██║ ╚████║██║ ╚████║╚██████╔╝");
+                Console.WriteLine("       ╚══════╝╚═╝╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═══╝ ╚═════╝ ");
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.WriteLine("    ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗███████╗");
-                Console.WriteLine("    ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝██╔════╝");
-                Console.WriteLine("    ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║   ███████╗");
-                Console.WriteLine("    ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║   ╚════██║");
-                Console.WriteLine("    ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║   ███████║");
-                Console.WriteLine("    ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝   ╚══════╝");
+                Console.WriteLine("          ██████╗ ██████╗  ██████╗ ██████╗ ██╗   ██╗ ██████╗████████╗███████╗");
+                Console.WriteLine("          ██╔══██╗██╔══██╗██╔═══██╗██╔══██╗██║   ██║██╔════╝╚══██╔══╝██╔════╝");
+                Console.WriteLine("          ██████╔╝██████╔╝██║   ██║██║  ██║██║   ██║██║        ██║   ███████╗");
+                Console.WriteLine("          ██╔═══╝ ██╔══██╗██║   ██║██║  ██║██║   ██║██║        ██║   ╚════██║");
+                Console.WriteLine("          ██║     ██║  ██║╚██████╔╝██████╔╝╚██████╔╝╚██████╗   ██║   ███████║");
+                Console.WriteLine("          ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝  ╚═════╝   ╚═╝   ╚══════╝");
                 Console.WriteLine();
 
                 for (int i = 0; i < produkt_count; i++)
@@ -528,30 +531,30 @@ namespace Projekt_Klausur
         // STYLING CHOICES FOR LOG IN
         static void access_panel()
         {
-            Console.WriteLine("     ████████████████████████████████████████████");
+            Console.WriteLine("           ████████████████████████████████████████████");
             Console.WriteLine();
-            Console.WriteLine("                  NEXUS ACCESS NODE");
+            Console.WriteLine("                        NEXUS ACCESS NODE");
             Console.WriteLine();
-            Console.WriteLine("     ████████████████████████████████████████████");
+            Console.WriteLine("           ████████████████████████████████████████████");
             Console.WriteLine();
-            Console.WriteLine("              Loading security modules...");
+            Console.WriteLine("                   Loading security modules...");
             Console.WriteLine();
             Console.WriteLine("> ENTER OPERATOR NAME");
             Console.ReadLine();
 
             Console.Clear();
 
-            Console.WriteLine("     ████████████████████████████████████████████");
+            Console.WriteLine("           ████████████████████████████████████████████");
             Console.WriteLine();
-            Console.WriteLine("                   ACCESS GRANTED");
+            Console.WriteLine("                        ACCESS GRANTED");
             Console.WriteLine();
-            Console.WriteLine("     ████████████████████████████████████████████");
+            Console.WriteLine("           ████████████████████████████████████████████");
             Console.WriteLine();
-            Console.WriteLine("             Connection Status : ONLINE");
-            Console.WriteLine("             Firewall          : ACTIVE");
-            Console.WriteLine("             Encryption        : ENABLED");
+            Console.WriteLine("               Connection Status : ONLINE");
+            Console.WriteLine("               Firewall          : ACTIVE");
+            Console.WriteLine("               Encryption        : ENABLED");
             Console.WriteLine();
-            Console.WriteLine("     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+            Console.WriteLine("          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
             Console.WriteLine();
             Console.WriteLine("Press [ ENTER ] to continue...");
             Console.ReadLine();
@@ -562,64 +565,64 @@ namespace Projekt_Klausur
 
         static void Manager_Menu()
         {
-            Console.WriteLine("══════════════════════════════════════════════════════════════════════");
+            Console.WriteLine("      ══════════════════════════════════════════════════════════════════════");
             Console.WriteLine();
-            Console.WriteLine("             NEXUS CONTROL PANEL");
+            Console.WriteLine("                            NEXUS CONTROL PANEL");
             Console.WriteLine();
-            Console.WriteLine("══════════════════════════════════════════════════════════════════════");
+            Console.WriteLine("      ══════════════════════════════════════════════════════════════════════");
             Console.WriteLine();
-            Console.WriteLine(" Select an operation:");
+            Console.WriteLine("                            Select an operation:");
             Console.WriteLine();
-            Console.WriteLine("     [1] 📦  Product Inventory");
+            Console.WriteLine("                          [1] 📦  Product Inventory");
             Console.WriteLine();
-            Console.WriteLine("     [2] ➕  Register New Product");
+            Console.WriteLine("                          [2] ➕  Register New Product");
             Console.WriteLine();
-            Console.WriteLine("     [3] 🗑   Remove Product");
+            Console.WriteLine("                          [3] 🗑  Remove Product");
             Console.WriteLine();
-            Console.WriteLine("     [X] ⏻  Logout");
+            Console.WriteLine("                          [X] ⏻   Logout");
         }
         
         static void Kunde_Menu()
         {
-            Console.WriteLine("══════════════════════════════════════════════════════════════════════");
+            Console.WriteLine("      ══════════════════════════════════════════════════════════════════════");
             Console.WriteLine();
-            Console.WriteLine("             NEXUS CONTROL PANEL");
+            Console.WriteLine("                            NEXUS CONTROL PANEL");
             Console.WriteLine();
-            Console.WriteLine("══════════════════════════════════════════════════════════════════════");
+            Console.WriteLine("      ══════════════════════════════════════════════════════════════════════");
             Console.WriteLine();
-            Console.WriteLine(" Select an operation:");
+            Console.WriteLine("                            Select an operation:");
             Console.WriteLine();
-            Console.WriteLine(" [1] 📦  Browse Products");
+            Console.WriteLine("                           [1] 📦  Browse Products");
             Console.WriteLine();
-            Console.WriteLine(" [2] 📄  View Orders");
+            Console.WriteLine("                           [2] 📄  View Orders");
             Console.WriteLine();
-            Console.WriteLine(" [3] ➕  Place New Order");
+            Console.WriteLine("                           [3] ➕  Place New Order");
             Console.WriteLine();
-            Console.WriteLine(" [X] \u23fb  Disconnect");
+            Console.WriteLine("                           [X] \u23fb  Disconnect");
             Console.WriteLine();
-            Console.WriteLine("───────────────────────────────────────────────────────");
+            Console.WriteLine("      ────────────────────────────────────────────────────────────────────────");
             Console.WriteLine(" Awaiting input...");
         }
         
         static void lieferant_menu()
         {
             //Console.Clear();
-            Console.WriteLine("══════════════════════════════════════════════════════════════════════");
+            Console.WriteLine("      ══════════════════════════════════════════════════════════════════════");
             Console.WriteLine();
-            Console.WriteLine("             NEXUS CONTROL PANEL");
+            Console.WriteLine("                            NEXUS CONTROL PANEL");
             Console.WriteLine();
-            Console.WriteLine("══════════════════════════════════════════════════════════════════════");
+            Console.WriteLine("      ══════════════════════════════════════════════════════════════════════");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine(" Select an operation:");
+            Console.WriteLine("                            Select an operation:");
             Console.WriteLine();
-            Console.WriteLine(" [1] 📦  Browse Products");
+            Console.WriteLine("                           [1] 📦  Browse Products");
             Console.WriteLine();
-            Console.WriteLine(" [2] ➕  Deliever Products");
+            Console.WriteLine("                           [2] ➕  Deliever Products");
             Console.WriteLine();
-            Console.WriteLine(" [X] \u23fb  Disconnect");
+            Console.WriteLine("                           [X] \u23fb  Disconnect");
             Console.WriteLine();
-            Console.WriteLine("──────────────────────────────────────────────────────────────────────");
+            Console.WriteLine("      ────────────────────────────────────────────────────────────────────────");
             Console.WriteLine(" Awaiting input...");
         }
 
